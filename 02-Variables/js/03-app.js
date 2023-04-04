@@ -1,0 +1,1 @@
+const producto = "Esto es para contantes";
