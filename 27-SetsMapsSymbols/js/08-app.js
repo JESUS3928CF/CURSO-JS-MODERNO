@@ -2,8 +2,10 @@ const ciudades = ["Londres", "New York", "Paris", "Soup Part"];
 const ordenes = new Set([123,231,131,102]);
 const datos = new Map();
 
+
 datos.set("nombre", "Jesús");
 datos.set('Profesión', 'Desarrollador web');
+// ciudades.map( n => console.log(n,"desde aca"));
 
 
 // Default
