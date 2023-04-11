@@ -3,52 +3,67 @@ import UI,{ui} from "./classes/UI.js";
 
 
 ( () => {
+    let editando = false;
 
     const formulario = document.querySelector('#formulario');
-    console.log(formulario, "agregar");
     window.formularioModulo = formulario;
 
     // Instancias de clases
     // const ui = new UI();
 
     document.addEventListener('DOMContentLoaded', () => {
-
         conectarDB();
 
-        formulario.addEventListener("submit", validarCliente);
+        // Verificar el id de la url
+        const parametrosURL = new URLSearchParams(window.location.search);
+
+        editando = parametrosURL.get('editando');
+        console.log(editando, "Desde cliente");
+
+        formulario.addEventListener('submit', validarCliente);
     })
 
     function validarCliente(e) {
-        e.preventDefault();
+        if(editando != "true"){
+            e.preventDefault();
 
-        // console.log("Validando");
+            // console.log("Validando");
 
-        // Leer todos los inputs
-        const nombre = document.querySelector('#nombre').value;
-        const email = document.querySelector('#email').value;
-        const telefono = document.querySelector('#telefono').value;
-        const empresa = document.querySelector('#empresa').value;
+            // Leer todos los inputs
+            const nombre = document.querySelector('#nombre').value;
+            const email = document.querySelector('#email').value;
+            const telefono = document.querySelector('#telefono').value;
+            const empresa = document.querySelector('#empresa').value;
 
-        if( nombre === "" || email === "" || telefono === "" || empresa === ""){
-            // console.error("Error ")
-            ui.imprimirAlerta("Todos los campos son obligatorios", "error", "agregarCliente");
+            if (
+                nombre === '' ||
+                email === '' ||
+                telefono === '' ||
+                empresa === ''
+            ) {
+                // console.error("Error ")
+                ui.imprimirAlerta(
+                    'Todos los campos son obligatorios',
+                    'error',
+                    'agregarCliente'
+                );
 
-            return;
+                return;
+            }
+
+            // Crear un objecto con la información
+            const cliente = {
+                id: Date.now(),
+                nombre,
+                email,
+                telefono,
+                empresa,
+            };
+
+            // console.log(cliente);
+
+            crearNuevoCliente(cliente);
         }
-
-        // Crear un objecto con la información
-        const cliente = {
-            id : Date.now(),
-            nombre,
-            email,
-            telefono,
-            empresa
-        }
-
-        // console.log(cliente);
-
-        crearNuevoCliente(cliente);
-
     }
 
     function crearNuevoCliente(cliente) {
