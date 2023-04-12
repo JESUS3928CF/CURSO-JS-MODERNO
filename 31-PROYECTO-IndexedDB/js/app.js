@@ -270,18 +270,18 @@ function nuevaCita(e) {
         };
     }
 
-    // Imprimir el HTML de citas
+    //- Imprimir el HTML de citas
     ui.imprimirCitas();
 
-    // Reinicia el objeto para evitar futuros problemas de validación
+    //- Reinicia el objeto para evitar futuros problemas de validación
     reiniciarObjeto();
 
-    // Reiniciar Formulario
+    ///- Reiniciar Formulario
     formulario.reset();
 }
 
 function reiniciarObjeto() {
-    // Reiniciar el objeto
+    //- Reiniciar el objeto
     citaObj.mascota = '';
     citaObj.propietario = '';
     citaObj.telefono = '';
@@ -307,7 +307,7 @@ function eliminarCita(id) {
 function cargarEdicion(cita) {
     const { mascota, propietario, telefono, fecha, hora, sintomas, id } = cita;
 
-    // Reiniciar el objeto
+    //- Reiniciar el objeto
     citaObj.mascota = mascota;
     citaObj.propietario = propietario;
     citaObj.telefono = telefono;
@@ -316,7 +316,7 @@ function cargarEdicion(cita) {
     citaObj.sintomas = sintomas;
     citaObj.id = id;
 
-    // Llenar los Inputs
+    //- Llenar los Inputs
     mascotaInput.value = mascota;
     propietarioInput.value = propietario;
     telefonoInput.value = telefono;
