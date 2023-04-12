@@ -4,7 +4,12 @@ const footer = document.querySelector(".footer");
 
 btnFlotante.addEventListener("click", () => {
     // alert("Diste click en el botón")
+
+    /// Comprobar si existe una clase en un elemento 
     if (footer.classList.contains("activo")) {
+
+
+
         footer.classList.remove("activo");
         btnFlotante.classList.remove("activo");
         btnFlotante.textContent = 'Idioma y Moneda';
@@ -22,3 +27,14 @@ btnFlotante.addEventListener("click", () => {
     // ++contador;
     // console.log(contador);
 });
+
+
+const divElement = document.querySelector('div');
+const pElement = document.querySelector('p');
+
+/// Observar o comprobar los hijos de un elemento
+if (divElement.contains(pElement)) {
+    console.log('El div contiene el elemento p');
+} else {
+    console.log('El div no contiene el elemento p');
+}

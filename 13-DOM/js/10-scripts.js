@@ -1,3 +1,100 @@
+//! Construyendo un enlace
+/// Crea un elemento HTML
+const enlace = document.createElement("a"); //* Especificar que elemento queremos crear
+
+//! agregando atributos a el enlace
+/// Agregando el texto
+enlace.textContent = "Nuevo enlace"; //* El contenido del elemento
+
+/// Añadiendo href a mi enlace 
+enlace.href = "#";
+
+/// Agregando un target
+enlace.target = "_blank";
+console.log(enlace);
+
+/// Agregando un evento al elemento
+enlace.onclick = () => { console.log("Hola")}; //* agregando una función
+
+/// Agregando un atributo personalizado
+enlace.setAttribute("data-enlace", "nuevo-enlace");
+
+/// Agregando alguna clase
+enlace.classList.add("alguna-clase");
+
+/// Agregando un id
+enlace.id = "mi-enlace";
+
+//! Seleccionando el lugar dónde se agregara el elemento creado
+const navegación = document.querySelector('.navegacion');
+/// Le agrega un hijo al elemento seleccionado en la ultima posición 
+navegación.appendChild(enlace);
+
+/// Inserta el elemento antes del hijo especificado
+navegación.insertBefore(enlace, navegación.children[2]); //* Necesita un nodo de referencia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // const enlace = document.createElement('a');
 
 // enlace.textContent = 'Nuevo Enlace';
@@ -62,46 +159,46 @@
 // // contenedor.insertBefore(myCard, contenedor.firstChild);
 // contenedor.appendChild(myCard);
 
-const btnAgregar = document.querySelector('.navegacion').children[0];
-btnAgregar.onclick = agregar;
+// const btnAgregar = document.querySelector('.navegacion').children[0];
+// btnAgregar.onclick = agregar;
 
-function agregar(){
-    alert("Hola");
-    // crear un card
-    const parrafo1 = document.createElement('p');
-    parrafo1.textContent = 'Concierto';
-    parrafo1.classList.add('categoria', 'concierto');
+// function agregar(){
+//     alert("Hola");
+//     // crear un card
+//     const parrafo1 = document.createElement('p');
+//     parrafo1.textContent = 'Concierto';
+//     parrafo1.classList.add('categoria', 'concierto');
 
-    const parrafo2 = document.createElement('p');
-    parrafo2.textContent = 'Concierto de rock';
-    parrafo2.classList.add('titulo');
+//     const parrafo2 = document.createElement('p');
+//     parrafo2.textContent = 'Concierto de rock';
+//     parrafo2.classList.add('titulo');
 
-    const parrafo3 = document.createElement('p');
-    parrafo3.textContent = '$300 por persona';
-    parrafo3.classList.add('precio');
+//     const parrafo3 = document.createElement('p');
+//     parrafo3.textContent = '$300 por persona';
+//     parrafo3.classList.add('precio');
 
-    // crear div info
-    const info = document.createElement('div');
-    info.classList.add('info');
-    info.appendChild(parrafo1);
-    info.appendChild(parrafo2);
-    info.appendChild(parrafo3);
+//     // crear div info
+//     const info = document.createElement('div');
+//     info.classList.add('info');
+//     info.appendChild(parrafo1);
+//     info.appendChild(parrafo2);
+//     info.appendChild(parrafo3);
 
-    //crear la imagen
-    const imagen = document.createElement('img');
-    imagen.src = 'img/hacer2.jpg';
+//     //crear la imagen
+//     const imagen = document.createElement('img');
+//     imagen.src = 'img/hacer2.jpg';
 
-    // crear el card
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.appendChild(imagen);
-    card.appendChild(info);
+//     // crear el card
+//     const card = document.createElement('div');
+//     card.classList.add('card');
+//     card.appendChild(imagen);
+//     card.appendChild(info);
 
-    // insertar en el html
-    const contenedor = document.querySelector('.contenedor-cards');
-    contenedor.appendChild(card);
+//     // insertar en el html
+//     const contenedor = document.querySelector('.contenedor-cards');
+//     contenedor.appendChild(card);
 
     
-}
+// }
 
 

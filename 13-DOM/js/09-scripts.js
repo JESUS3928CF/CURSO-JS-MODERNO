@@ -1,6 +1,8 @@
 const primerEnlace = document.querySelector('a');
-// console.log(primerEnlace.remove());
 
-const navegacion = document.querySelector('.navegacion');
+/// Elimina el elemento seleccionado
+console.log(primerEnlace.remove());
 
-console.log(navegacion.removeChild(navegacion.children[2]));
+const navegación = document.querySelector('.navegacion');
+/// Elimina un hijo desde el padre
+console.log(navegación.removeChild(navegación.children[2]));//* Requiere el elemento hijo
