@@ -13,6 +13,8 @@ parrafo2.classList.add('titulo');
 const parrafo3 = document.createElement('p');
 parrafo3.textContent = '$800 por persona';
 parrafo3.classList.add('precio');
+
+/// Técnica para Prevenir Event Bubbling Especial para cuando se esta generando el html
 parrafo3.onclick = function () {
     nuevaFuncion(1);
 };
