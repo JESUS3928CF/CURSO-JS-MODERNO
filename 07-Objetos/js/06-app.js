@@ -3,19 +3,20 @@ const MisProductos = {
         precio: 100,
         cantidad: 10,
     },
-    informacion:{
+    información:{
         tela:"algodón",
-        pais: "Colombia",
-        algomas: {
+        país: "Colombia",
+        algoMás: {
             min: 10,
             max: 15
         }
     }
 };
 
-const {camisa, informacion:{pais}, camisa:{precio}, informacion:{ algomas : {min}}} = MisProductos;
-
-console.log(pais);
+/// Destructuring de Objetos Anidados
+const {camisa, información:{país: país}, camisa:{precio}, información:{ algoMás : {min}}} = MisProductos;
+//* Creo estas variables Camisas, país, precio, min
+console.log(país);
 console.log(camisa);
 console.log(precio);
 console.log(min);

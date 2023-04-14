@@ -1,9 +1,14 @@
-const producto = ["camisa","pantaloneta","buzo"];
+const producto = ["camisa","pantaloneta","buzo", [1,2,3,4]];
 
+//- Acceder al arreglo a traves de la posición
 console.log(producto[0]);
 
+//- Acceder a los valores de arreglos concatenados
+console.log(producto[3][1]);
 
-
-producto[1]= "hola";
+//- Modificar el arreglo
+producto[1] = "hola";
 
 console.log(producto[1]);
+
+

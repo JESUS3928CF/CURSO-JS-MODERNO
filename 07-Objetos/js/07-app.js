@@ -1,55 +1,34 @@
-// "use strict";
+//! Se tiene que activar el modo estricto
+"use strict"; /// Este modo no permite malas practicas en le documento
+
 const producto = {
     precio: 100,
     nombre: "camisa",
-    informacion:{
-        medidas:{
-            peso:10,
-            tamaño:"1m"
-        }
-    }
+    disponible: true,
 }
 
-const producto1 = {
-    prec: 100,
-    nombre1: 'camisa',
-    // informacion1: {
-    //     medidas1: {
-    //         peso1: 10,
-    //         tamaño: '1m',
-    //     }
-    // }
-};
+/// No permite que se modifique el objeto
+Object.freeze(producto); //* Congela el objeto
 
+/// Este método me permite saber si un objeto esta congelado o no
+console.log(Object.isFrozen(producto));
 
-// Object.freeze(producto);
-Object.seal(producto);
-
-// producto.cantidad = 13;
-
-producto.precio = 200;
-// delete producto.precio;
-
-// function Producto (nombre,precio,cantidad){
-//     this.nombre = nombre;
-//     this.precio = precio;
-//     this.cantidad = cantidad;
-//     this.MostrarDetalle = function(){return(`Nombre ${nombre}, precio ${precio}, cantidad ${cantidad}`);}
-// }
+producto.disponible = false;
+delete producto.disponible;
 
 
 
 // const producto1 = new Producto("Buzo",500,13);
-const productos = Object.assign(producto);
+// const productos = Object.assign(producto);
 
-const productos1 = {...producto,...producto1};
-console.log(productos1);
+// const productos1 = {...producto,...producto1};
+// console.log(productos1);
 
-// producto1.MostrarDetalle();
-console.log(producto1.nombre1);
-const {nombre} = producto;
-console.log(nombre);
+// // producto1.MostrarDetalle();
+// console.log(producto1.nombre1);
+// const {nombre} = producto;
+// console.log(nombre);
 
-console.log(producto)
+// console.log(producto)
 
-console.log(producto["nombre"]);
+// console.log(producto["nombre"]);

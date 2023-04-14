@@ -1,14 +1,4 @@
-const meses = [
-    'enero',
-    'marso',
-    'abril',
-    // 'mayo',
-    // 'junio',
-    // 'julio',
-    // 'august',
-    // 'september',
-    // 'ok',
-];
+const meses = ['enero', 'marso', 'abril', 'mayo', 'junio', 'ok'];
 
 meses.push('abril');
 
@@ -16,7 +6,7 @@ meses.push('mayo');
 
 console.log(meses);
 
-const carrito = [];
+const carrito = [1];
 
 const producto = {
     nombre: 'monitor',
@@ -28,21 +18,15 @@ const producto2 = {
     precio: 800,
 };
 
-carrito.unshift(producto2);
+/// Crear un nuevo arreglo con el spread operator
+const miNuevoArray = [...carrito, ...meses, producto]; //* Toma una copia de 2 arrays u un objeto y los une
+console.log(miNuevoArray);
 
-carrito.push(producto);
-console.table(carrito);
+const numeros = ['a', 'b', 'c', 'd', 'e'];
 
+numeros.push('i');
 
-const mi = [...carrito,...meses];
-console.log(mi);
+numeros.unshift('A');
 
-
-const vocales =["a","b","c","d","e",];
-
-vocales.push("i");
-
-vocales.unshift("A");
-
-vocales[vocales.length] = "o";
-console.log(vocales);
+numeros[numeros.length] = 'o';
+console.log(numeros);

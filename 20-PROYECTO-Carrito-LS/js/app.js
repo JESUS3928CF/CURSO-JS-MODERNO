@@ -3,12 +3,15 @@ const carrito = document.querySelector('#carrito');
 const listaCursos = document.querySelector('#lista-cursos');
 const contenedorCarrito = document.querySelector('#lista-carrito tbody');
 const vaciarCarritoBtn = document.querySelector('#vaciar-carrito');
-let articulosCarrito = [];
+let articulosCarrito = JSON.parse(localStorage.getItem('articulosCarrito')) || [];
 
 // Listeners
 cargarEventListeners();
 
 function cargarEventListeners() {
+    /// Consultar la información del local storage
+    sincronizarInfoLocalStorage();
+
     // Dispara cuando se presiona "Agregar Carrito"
     listaCursos.addEventListener('click', agregarCurso);
 
@@ -16,7 +19,7 @@ function cargarEventListeners() {
     carrito.addEventListener('click', eliminarCurso);
 
     // Al Vaciar el carrito
-    vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
+    vaciarCarritoBtn.addEventListener('click', vaciarDatosCarrito);
 }
 
 // Funciones
@@ -55,10 +58,12 @@ function leerDatosCurso(curso) {
         articulosCarrito = [...articulosCarrito, infoCurso];
     }
 
+    sincronizarInfoLocalStorage();
+
     // console.log(articulosCarrito)
 
     // console.log(articulosCarrito)
-    carritoHTML();
+    
 }
 
 // Elimina el curso del carrito en el DOM
@@ -73,7 +78,7 @@ function eliminarCurso(e) {
             (curso) => curso.id !== cursoId
         );
 
-        carritoHTML();
+        sincronizarInfoLocalStorage();
     }
 }
 
@@ -98,6 +103,11 @@ function carritoHTML() {
     });
 }
 
+function vaciarDatosCarrito(){
+    articulosCarrito = [];
+    sincronizarInfoLocalStorage();
+}
+
 // Elimina los cursos del carrito en el DOM
 function vaciarCarrito() {
     // forma lenta
@@ -108,3 +118,15 @@ function vaciarCarrito() {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
     }
 }
+
+/// Agrega la información de la lista de articulos al local storage
+
+function sincronizarInfoLocalStorage() {
+    localStorage.setItem('articulosCarrito', JSON.stringify(articulosCarrito));
+
+    articulosCarrito = JSON.parse(localStorage.getItem('articulosCarrito'));
+
+    carritoHTML();
+}
+
+// Obtiene la información de la lista de articulos del local storage
