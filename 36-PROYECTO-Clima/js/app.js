@@ -34,6 +34,7 @@
 
     //- Imprime un mensaje en la pantalla
     function mostrarError(message) {
+        limpiarHTML();
         /// Técnica para detectar un elemento HTML
         let alerta = document.querySelector('.alerta');
 
@@ -87,6 +88,7 @@
                 extraerInfoMostrarClimaHTML(info);
             })
             .catch((error) => console.log(error));
+
     }
 
     function extraerInfoMostrarClimaHTML(info) {
