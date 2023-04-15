@@ -10,5 +10,5 @@ const productos = carrito.map( producto => producto.nombre + " " + producto.prec
 console.log(productos);
 
 productos.forEach( producto => console.log(producto));
-productos.forEach((producto) => console.log(producto));
-productos.forEach((producto) => console.log(producto));
+
+

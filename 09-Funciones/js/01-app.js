@@ -1,12 +1,12 @@
-// declaración de función
+/// declaración de función
 
-function sumar(num1,num2){
+function sumar(num1,num2){ //* Se le asigna el nombre y sus parámetros
     console.log(num1 + num2);
 }
 
-sumar(2,3);
+sumar(2,3); //* Se manda a llamar la función
 
-// Expresión de función
+/// Expresión de función
 const sumar2 = function(){
     console.log(3+3);
 }

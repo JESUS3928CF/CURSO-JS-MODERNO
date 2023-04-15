@@ -1,12 +1,14 @@
+/// Función que retorna algo
 function sumar(a,b){
     return a + b;
 }
 
+/// Cuando la función retorna algo hay que tener otra variable a la cual se le asigne el valor retornado
 const resultado = sumar(12,3);
 console.log(resultado);
 
 
-// Ejemplo más avanzado
+/// Ejemplo más avanzado
 
 let total = 0;
 function agregarCarrito(precio){
