@@ -1,3 +1,4 @@
+/// 
 var producto = "Monitor de 24 pulgadas";
 producto = "monitor de 18 pulgadas";
 console.log(producto);

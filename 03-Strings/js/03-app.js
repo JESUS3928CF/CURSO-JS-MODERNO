@@ -1,5 +1,11 @@
 const producto = "monitor de 20 pulgadas";
+const precio = '30 USB'
 
-console.log(`Esto si es más fácil de concatenar que el concat() o el más ++++ jajaja $´´{producto}`);
+/// Con concat
+console.log(producto.concat(precio));
 
+/// Con , o +
 console.log("Como concatenar con ,", " o  con + " + " algo")
+
+
+
