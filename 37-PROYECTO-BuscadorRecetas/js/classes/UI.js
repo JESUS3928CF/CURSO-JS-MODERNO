@@ -1,4 +1,4 @@
-import { selectCategories, resultado, modal } from '../funciones-elementos.js';
+import { selectCategories, resultado, modal, renderizarFavoritos } from '../funciones-elementos.js';
 import { api } from './API.js';
 import ls from './LocalStorage.js';
 import { favoritosDiv } from '../funciones-elementos.js';
@@ -129,7 +129,9 @@ class UI {
                 ls.eliminarFavorito(idMeal);
                 btnFavoritos.textContent = 'Guardar Como Favorito';
                 ui.mostrarToast('Eliminado Correctamente');
-
+                if (renderizarFavoritos === true) {
+                    ui.mostrarRecetas(JSON.parse(localStorage.getItem("listaRecetasFavoritas")) ?? []);
+                }
                 return;
             }
 
@@ -140,6 +142,9 @@ class UI {
             });
             btnFavoritos.textContent = 'Eliminar De favoritos';
             ui.mostrarToast('Agregado Correctamente');
+            if (renderizarFavoritos === true) {
+                    ui.mostrarRecetas(JSON.parse(localStorage.getItem("listaRecetasFavoritas")) ?? []);
+                }
         };
 
         const btnCerrar = document.createElement('button');
@@ -196,7 +201,7 @@ class UI {
     mostrarFavoritos(favoritos) {
         if (favoritos.length) {
             ui.mostrarRecetas(favoritos);
-            
+
             return;
         }
 

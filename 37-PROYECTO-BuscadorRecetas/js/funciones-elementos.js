@@ -1,13 +1,13 @@
 import { api } from './classes/API.js';
 import { ui } from './classes/UI.js';
-import ls from './classes/LocalStorage.js';
 
 //! Elementos HTML y sus eventos
-
+export let renderizarFavoritos = false;
 export const selectCategories = document.querySelector('#categorias');
 export const resultado = document.querySelector('#resultado');
 export const favoritosDiv = document.querySelector('.favoritos');
-if(favoritosDiv) {
+if (favoritosDiv) {
+    renderizarFavoritos = true;
     ui.obtenerFavoritos();
 }
 
