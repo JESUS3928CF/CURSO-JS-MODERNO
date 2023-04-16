@@ -1,8 +1,8 @@
-// WeakSet
-
+//! WeakSet
+/// Crear el WeakSet
 const weakSet = new WeakSet();
 
-const nombre = "Jesus";
+// const nombre = "Jesus";
 
 const cliente = {
     nombre: 'Jesús',
@@ -22,7 +22,7 @@ const cliente3 = {
 weakSet.add(cliente);
 weakSet.add(cliente2);
 
-weakSet.delete(cliente3);
+// weakSet.delete(cliente3);
 
 console.log(weakSet.has(cliente3));
 console.log(weakSet);
