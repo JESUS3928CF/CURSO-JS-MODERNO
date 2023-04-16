@@ -8,24 +8,28 @@ const carrito = [
     { nombre: 'Teclado', precio: 400 },
     { nombre: 'Celular', precio: 700 },
 ]
-// comprobar si un valor existe en un arreglo
-
+/// comprobar si un valor existe en un arreglo de forma manual
 meses.forEach( mes => {
     if(mes == "Enero"){
         console.log(`Si existe ${mes}`);
     }
 } );
 
+/// Este método comprueba si existe un valor en el array sin objetos
 const resultado = meses.includes("Enero");
 console.log(resultado);
 
+//! Method SOME
+/// Para revisar si un valor existe en un array de objetos se utiliza .some()
 const existe = carrito.some( producto => producto.nombre === "Celular");
-const existe2 = carrito.map( producto => producto.nombre === "Celular");
 console.log(existe);
+//- Diferencia a el map
+const existe2 = carrito.map( producto => producto.nombre === "Celular");
 console.log(existe2);
+
+//* Otro ejemplo 
 const existe3 = meses.some( mes => mes === "Enero");
 console.log(existe3);
-
 
 
 

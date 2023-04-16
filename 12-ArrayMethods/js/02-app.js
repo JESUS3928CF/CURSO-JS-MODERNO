@@ -9,22 +9,24 @@ const carrito = [
     { nombre: 'Celular', precio: 700 },
 ];
 
-meses.forEach(  (mes,i) => {
+/// Forma manual un un forEach 
+meses.forEach(  (mes,i) => { //* Primer parámetro es el valor y el segundo es el indexe del elemento actual
     if(mes == "Abril"){
         console.log(`${mes} fue encontrado en la posición ${i}`);
     }
     // console.log( mes === "Abril" ? `Abril fue encontrado en la posición ${i}`: `No` );
 });
 
-const mes = meses.findIndex( mes => mes == "Abril");
+//! Method findIndex()
+/// Encuentra el indexe de un elemento y retorna su posición
+const mes = meses.findIndex( mes => mes == "Abril"); //- Si retorna -1 significa que no lo encontró 
 console.log( mes );
 
 console.log( mes > 0 ? "Si esta": "No esta")
 
-
-console.log( meses);
-
-const existe = carrito.findIndex( producto => producto.precio == 500);
+/// Encontrar un indice de un arreglo de objetos
+const existe = carrito.findIndex( producto => producto.precio == 500); //- Extrae la posición del primero que encuentre
 console.log( existe );
 
 console.log( existe >= 0 ? "Si esta": "No esta");
+

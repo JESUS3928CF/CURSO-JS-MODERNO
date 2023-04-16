@@ -9,5 +9,7 @@ const carrito = [
     { nombre: 'Celular', precio: 700 }
 ];
 
+/// Si todos los elementos cumplen con la condición retorna TRUE o sino FALSE
 const resultado = carrito.every( producto => producto.precio < 1000);
 console.log(resultado);
+

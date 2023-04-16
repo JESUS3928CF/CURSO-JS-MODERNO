@@ -9,8 +9,16 @@ const carrito = [
     { nombre: 'Celular', precio: 700 },
 ];
 
-let totalPagar = 0;
 
+//! Method .reduce()
+/// Toma una gram cantidad de datos los une y entrega un resultado
+let resultado = carrito.reduce( (total, producto) => total + producto.precio, 0); //- Se le pasan 2 valores El que acumula y el valor actual
+//* El 0 es el valor de donde inicia 
+console.log(resultado);
+
+
+/// Con un forEach
+let totalPagar = 0;
 for( let [key,value] of Object.entries(carrito) ){
     totalPagar += value.precio;
 }
@@ -21,5 +29,3 @@ console.log(totalPagar);
 console.log(total);
 console.log(totalPagar2);
 
-let resultado = carrito.reduce( (total, producto) => total + producto.precio, 0);
-console.log(resultado);
