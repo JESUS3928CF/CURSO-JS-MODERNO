@@ -60,7 +60,8 @@ function guardarCliente(){
 }
 
 function obtenerPlatillos() {
-    const url = 'http://localhost:3000/platillos';
+    const url =
+        'https://my-json-server.typicode.com/JESUS3928CF/Api_recetas/platillos';
 
     fetch(url)
         .then((respuesta) => respuesta.json())

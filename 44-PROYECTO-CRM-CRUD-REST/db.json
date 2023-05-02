@@ -1,11 +1,25 @@
 {
   "clientes": [
     {
-      "nombre": "Juan NUEVO!",
-      "email": "correo2@correo.com",
-      "telefono": "12",
-      "empresa": "12212",
-      "id": 26
+      "nombre": "Jesus",
+      "email": "jesus3928cf@gmail.com",
+      "telefono": "32313214",
+      "empresa": "art zone",
+      "id": 27
+    },
+    {
+      "nombre": "Alan Cochero",
+      "email": "alan@gmail.com",
+      "telefono": "3233241223",
+      "empresa": "play zone",
+      "id": 28
+    },
+    {
+      "nombre": "Annie",
+      "email": "annie3928cf@gmail.com",
+      "telefono": "32132412",
+      "empresa": "art zone",
+      "id": 29
     }
   ]
 }

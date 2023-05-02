@@ -8,3 +8,15 @@ const carrito = [
     { nombre: 'Bocinas', precio: 300},
     { nombre: 'Laptop', precio: 800},
 ];
+
+/// Al máximo el array function y p para resumir producto
+const obtenerNombres = p => p.nombre;
+
+const resultado = carrito.map(obtenerNombres);
+console.log(resultado);
+
+
+const mayor500 = p => p.precio > 500;;
+
+const resultado2 = carrito.filter(mayor500);
+console.log(resultado2);
