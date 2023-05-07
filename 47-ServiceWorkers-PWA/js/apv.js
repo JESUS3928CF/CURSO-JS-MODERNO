@@ -170,7 +170,7 @@ class UI {
 
 
 const administrarCitas = new Citas();
-console.log(administrarCitas);
+// console.log(administrarCitas);
 const ui = new UI(administrarCitas);
 
 function nuevaCita(e) {
