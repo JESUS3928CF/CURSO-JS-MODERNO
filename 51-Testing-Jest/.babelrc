@@ -1,0 +1,14 @@
+/// Una vez instalado preset de babel podemos decirle la configuración que debe de tener este proyecto
+
+//. Esta configuración nos va a permitir habilitarle imports a un proyecto de node que solo soporta la sintaxis de comant js
+{
+    "presets": [
+        [
+            "@babel/preset-env", {
+                "targets": { //* Los targets son básicamente que versiones vamos a soportar 
+                    "node": "current"           
+                }
+            }
+        ]
+    ]
+}
