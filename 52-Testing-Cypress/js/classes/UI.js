@@ -1,46 +1,63 @@
 import { eliminarCita, cargarEdicion } from '../funciones.js';
-import { contenedorCitas, heading } from '../selectores.js';
+import { contenedorCitas, heading } from '../selectores.js';
 
 class UI {
-
-    constructor({citas}) {
+    constructor({ citas }) {
         this.textoHeading(citas);
     }
 
     imprimirAlerta(mensaje, tipo) {
+        const alertaPrevia = document.querySelector('.alert');
+
+        if (alertaPrevia) {
+            alertaPrevia.remove();
+        }
+
         // Crea el div
         const divMensaje = document.createElement('div');
         divMensaje.classList.add('text-center', 'alert', 'd-block', 'col-12');
-        
-        // Si es de tipo error agrega una clase
-        if(tipo === 'error') {
+
+        /// Si es de tipo error agrega una clase
+        if (tipo === 'error') {
             divMensaje.classList.add('alert-danger');
         } else {
             divMensaje.classList.add('alert-success');
         }
 
+        //! Agregar data-cy
+        divMensaje.dataset.cy = 'alerta';
+
         // Mensaje de error
         divMensaje.textContent = mensaje;
 
         // Insertar en el DOM
-        document.querySelector('#contenido').insertBefore( divMensaje , document.querySelector('.agregar-cita'));
+        document
+            .querySelector('#contenido')
+            .insertBefore(divMensaje, document.querySelector('.agregar-cita'));
 
         // Quitar el alert despues de 3 segundos
-        setTimeout( () => {
+        setTimeout(() => {
             divMensaje.remove();
         }, 3000);
-    
-      
-   }
+    }
 
-   imprimirCitas({citas}) { // Se puede aplicar destructuring desde la función...
-       
+    imprimirCitas({ citas }) {
+        // Se puede aplicar destructuring desde la función...
+
         this.limpiarHTML();
 
         this.textoHeading(citas);
 
-        citas.forEach(cita => {
-            const {mascota, propietario, telefono, fecha, hora, sintomas, id } = cita;
+        citas.forEach((cita) => {
+            const {
+                mascota,
+                propietario,
+                telefono,
+                fecha,
+                hora,
+                sintomas,
+                id,
+            } = cita;
 
             const divCita = document.createElement('div');
             divCita.classList.add('cita', 'p-3');
@@ -71,15 +88,24 @@ class UI {
             btnEliminar.onclick = () => eliminarCita(id); // añade la opción de eliminar
 
             btnEliminar.classList.add('btn', 'btn-danger', 'mr-2');
-            btnEliminar.innerHTML = 'Eliminar <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'
+
+            //! Dataset de Cypress
+            btnEliminar.dataset.cy = 'btn-eliminar';
+
+            btnEliminar.innerHTML =
+                'Eliminar <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
 
             // Añade un botón de editar...
             const btnEditar = document.createElement('button');
             btnEditar.onclick = () => cargarEdicion(cita);
 
-
             btnEditar.classList.add('btn', 'btn-info');
-            btnEditar.innerHTML = 'Editar <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>'
+
+            //! Dataset de Cypress
+            btnEditar.dataset.cy = 'editar';
+
+            btnEditar.innerHTML =
+                'Editar <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>';
 
             // Agregar al HTML
             divCita.appendChild(mascotaParrafo);
@@ -88,26 +114,26 @@ class UI {
             divCita.appendChild(fechaParrafo);
             divCita.appendChild(horaParrafo);
             divCita.appendChild(sintomasParrafo);
-            divCita.appendChild(btnEliminar)
-            divCita.appendChild(btnEditar)
+            divCita.appendChild(btnEliminar);
+            divCita.appendChild(btnEditar);
 
             contenedorCitas.appendChild(divCita);
-        });    
-   }
+        });
+    }
 
-   textoHeading(citas) {
-        if(citas.length > 0 ) {
-            heading.textContent = 'Administra tus Citas '
+    textoHeading(citas) {
+        if (citas.length > 0) {
+            heading.textContent = 'Administra tus Citas ';
         } else {
-            heading.textContent = 'No hay Citas, comienza creando una'
+            heading.textContent = 'No hay Citas, comienza creando una';
         }
     }
 
-   limpiarHTML() {
-        while(contenedorCitas.firstChild) {
+    limpiarHTML() {
+        while (contenedorCitas.firstChild) {
             contenedorCitas.removeChild(contenedorCitas.firstChild);
         }
-   }
+    }
 }
 
 export default UI;
